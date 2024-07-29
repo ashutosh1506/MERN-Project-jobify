@@ -3,6 +3,7 @@ dotenv.config();
 import express from "express";
 const app = express();
 import morgan from "morgan";
+import connectDB from "./db/connect.js";
 
 //routers
 import jobRouter from "./routes/jobRouter.js";
@@ -32,6 +33,9 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 5100;
+
+connectDB();
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
