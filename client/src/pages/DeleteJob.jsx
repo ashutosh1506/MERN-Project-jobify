@@ -8,7 +8,6 @@ export const action = async ({ params }) => {
     toast.success("Job deleted successfully");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
-    return error;
   }
   return redirect("/dashboard/all-jobs");
 };
